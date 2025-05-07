@@ -14,10 +14,17 @@ class CategoryFactory extends Factory
      *
      * @return array<string, mixed>
      */
-    public function definition(): array
+    public function definition()
     {
-        return [
-            //
-        ];
+        // $nome_categoria = [
+        //     'Carro',
+        //     'Moto',
+        //     'Caminhão',
+        //     'SUV',
+        //     'Picape'
+        // ];
+        // return [
+        //     'name' => fake()->unique()->randomElement($nome_categoria)
+        // ];
     }
 }

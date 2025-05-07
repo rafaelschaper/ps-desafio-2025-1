@@ -11,9 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('categories', function (Blueprint $table) {
+        Schema::create('vehicles', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->string('name')->unique();
+            $table->string('name');
+            $table->string('brand');
+            $table->string('year');
+            $table->string('image')->nullable();
+            $table->integer('quantity');
+            $table->foreignUuid('category_id')->constrained('categories');
             $table->timestamps();
         });
     }
@@ -23,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('categories');
+        Schema::dropIfExists('vehicles');
     }
 };
