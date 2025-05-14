@@ -12,7 +12,7 @@ import {
 import { api } from '@/services/api'
 import { userType } from '@/types/user'
 import { Button } from '@/components/button'
-import { LuInfo, LuPen, LuPlusCircle, LuTrash } from 'react-icons/lu'
+import { LuInfo, LuPen, LuCirclePlus, LuTrash } from 'react-icons/lu'
 import { DialogUpdateUser } from './dialog-update-user'
 import { DialogUserDelete } from './dialog-delete-user'
 import { DialogInformationUser } from './dialog-information-user'
@@ -36,7 +36,7 @@ export default async function ListUsers() {
       <DashboardContainer className="flex h-min justify-between space-x-0 gap-y-2.5 max-sm:flex-col">
         <DialogCreateUser>
           <Button size="sm">
-            <LuPlusCircle />
+            <LuCirclePlus />
             Novo usuário
           </Button>
         </DialogCreateUser>

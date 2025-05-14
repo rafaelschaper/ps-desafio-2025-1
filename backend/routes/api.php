@@ -14,9 +14,14 @@ Route::middleware(['auth:sanctum'])->group(function () {
     });
 });
 
+Route::get('/vehicles', [VehicleController::class, 'index']);
+Route::get('/vehicles/{id}', [VehicleController::class, 'show']);
+
+Route::post('/vehicles/{id}/buy', [VehicleController::class, 'buy']);
+
 Route::middleware(['auth:sanctum', 'can:admin'])->group(function () {
     Route::apiResource('/category', CategoryController::class);
-    Route::apiResource('/vehicles', VehicleController::class);
+    Route::apiResource('/vehicles', VehicleController::class)->except(['index', 'show']);
     Route::apiResource('/users', UserController::class);
 });
 

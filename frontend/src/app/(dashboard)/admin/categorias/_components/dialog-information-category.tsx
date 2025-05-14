@@ -31,7 +31,7 @@ export function DialogInformationCategory({
 
   useEffect(() => {
     const requestData = async () => {
-      const { response } = null // requisicao para api
+      const { response } = await api<categoryType>('GET', `/category/${id}/`) // requisicao para api
 
       if (response) {
         setCategory(response)
@@ -59,7 +59,7 @@ export function DialogInformationCategory({
             Visualize as informações detalhadas da categoria abaixo.
           </DialogDescription>
         </DialogHeader>
-          <FormFieldsCategory category={category} readOnly />
+        <FormFieldsCategory category={category} readOnly />
       </DialogContent>
     </Dialog>
   )

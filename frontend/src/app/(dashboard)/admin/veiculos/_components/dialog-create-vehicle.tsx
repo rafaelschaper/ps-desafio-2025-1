@@ -38,11 +38,11 @@ export function DialogCreateVehicle({ children }: DialogCreateVehicleProps) {
     if (error) {
       setError(error)
       toast({
-        title: 'Não foi possível criar o livro!',
+        title: 'Não foi possível criar o veículo!',
       })
     } else {
       toast({
-        title: 'Livro criado com sucesso!',
+        title: 'Veículo criado com sucesso!',
       })
       setOpen(false)
     }
@@ -53,9 +53,9 @@ export function DialogCreateVehicle({ children }: DialogCreateVehicleProps) {
       <DialogTrigger asChild>{children}</DialogTrigger>
       <DialogContent>
         <DialogHeader>
-          <DialogTitle>Adicionar livro</DialogTitle>
+          <DialogTitle>Adicionar veículo</DialogTitle>
           <DialogDescription>
-            Preencha as informações do novo livro abaixo e clique em
+            Preencha as informações do novo veículo abaixo e clique em
             &rdquo;Salvar&rdquo; para incluí-lo no sistema.
           </DialogDescription>
         </DialogHeader>

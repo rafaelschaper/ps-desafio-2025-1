@@ -115,4 +115,18 @@ class VehicleController extends Controller
         $vehicle->delete();
         return response()->json(['message' => 'Veículo deletado com sucesso!']);
     }
+
+    public function buy($id): JsonResponse
+    {
+        $vehicle = Vehicle::findOrFail($id);
+        
+        if ($vehicle->quantity > 0) {
+            $vehicle->quantity -= 1;
+            $vehicle->save();
+
+            return response()->json(['message' => 'Compra realizada com sucesso!'], Response::HTTP_OK); 
+        }
+
+        return response()->json(['message' => 'Veículo esgotado'], Response::HTTP_BAD_REQUEST);
+    }
 }

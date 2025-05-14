@@ -30,7 +30,7 @@ export function DialogInformationVehicle({
 
   useEffect(() => {
     const requestData = async () => {
-      const { response } = null // requisicao para api
+      const { response } = await api<vehicleType>('GET', `/vehicles/${id}`) // requisicao para api
 
       if (response) {
         setVehicle(response)
@@ -53,9 +53,9 @@ export function DialogInformationVehicle({
       <DialogTrigger asChild>{children}</DialogTrigger>
       <DialogContent>
         <DialogHeader>
-          <DialogTitle>Informações do livro</DialogTitle>
+          <DialogTitle>Informações do veículo</DialogTitle>
           <DialogDescription>
-            Visualize as informações detalhadas do livro abaixo.
+            Visualize as informações detalhadas do veículo abaixo.
           </DialogDescription>
         </DialogHeader>
         <FormFieldsVehicle vehicle={vehicle} readOnly />

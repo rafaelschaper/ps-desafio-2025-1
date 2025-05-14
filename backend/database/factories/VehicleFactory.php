@@ -29,7 +29,7 @@ class VehicleFactory extends Factory
             'name' => fake()->randomElement($nome_veiculo),
             'brand' => fake()->name(),
             'year' => fake()->year(),
-            'image' => $this->faker->imageUrl(640, 480),
+            'image' => 'https://picsum.photos/'.rand(500, 300),
             'quantity' => fake()->randomNumber(3),
             'category_id' => Category::inRandomOrder()->first()->id,
         ];
