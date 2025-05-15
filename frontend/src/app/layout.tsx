@@ -8,7 +8,7 @@ import { Toaster } from '@/components/toaster'
 const arimo = Arimo({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Adapti Project Template',
+  title: 'Sama Motors',
   description: 'Created by Adapti 2024',
 }
 

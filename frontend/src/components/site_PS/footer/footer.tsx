@@ -25,42 +25,8 @@ export default function Footer() {
             </a>
           </div>
         </div>
-
-        <ul className={style.list}>
-          <li>
-            <h3>Nossa empresa</h3>
-          </li>
-          <li>
-            <a href="#" className={style.sobre_link}>
-              AdaptiCast
-            </a>
-          </li>
-          <li>
-            <a href="#" className={style.sobre_link}>
-              Adapti - Soluções Web
-            </a>
-          </li>
-        </ul>
-
-        <ul className={style.list}>
-          <li>
-            <h3>Parcerias</h3>
-          </li>
-          <li>
-            <a href="#" className={style.sobre_link}>
-              Spotify
-            </a>
-          </li>
-          <li>
-            <a href="#" className={style.sobre_link}>
-              UFES
-            </a>
-          </li>
-        </ul>
       </div>
-      <div className={style.copyright}>
-        2025, Feito com ♥ por Adapti Soluções Web
-      </div>
+      <div className={style.copyright}>2025, Feito por Rafael Reis Schaper</div>
     </footer>
   )
 }

@@ -14,13 +14,16 @@ Route::middleware(['auth:sanctum'])->group(function () {
     });
 });
 
+Route::get('/category', [CategoryController::class, 'index']);
+Route::get('/category/{id}', [CategoryController::class, 'show']);
+
 Route::get('/vehicles', [VehicleController::class, 'index']);
 Route::get('/vehicles/{id}', [VehicleController::class, 'show']);
 
 Route::post('/vehicles/{id}/buy', [VehicleController::class, 'buy']);
 
 Route::middleware(['auth:sanctum', 'can:admin'])->group(function () {
-    Route::apiResource('/category', CategoryController::class);
+    Route::apiResource('/category', CategoryController::class)->except(['index', 'show']);
     Route::apiResource('/vehicles', VehicleController::class)->except(['index', 'show']);
     Route::apiResource('/users', UserController::class);
 });

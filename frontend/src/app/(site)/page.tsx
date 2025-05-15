@@ -33,6 +33,18 @@ export default function Home() {
     requestData()
   }, [toast])
 
+  const handleCategoryFilter = (category: string | null) => {
+    if (category) {
+      const filtered = vehicles?.filter(
+        (vehicle) =>
+          vehicle.category.name.toLowerCase() === category.toLowerCase(),
+      )
+      setFilteredVehicles(filtered)
+    } else {
+      setFilteredVehicles(vehicles)
+    }
+  }
+
   useEffect(() => {
     if (searchTerm === '') {
       setFilteredVehicles(vehicles)
@@ -71,7 +83,7 @@ export default function Home() {
   return (
     <>
       <div className={style.page}>
-        <Navbar logo="./images/site-logo.png" />
+        <Navbar onCategorySelect={handleCategoryFilter} />
         <div className={style.banner}>
           <img
             src="./images/banner.jpg"

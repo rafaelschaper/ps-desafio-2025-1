@@ -10,7 +10,14 @@ import {
 import { DialogFooter } from '@/components/dialog'
 import { Input } from '@/components/input'
 import { Label } from '@/components/label'
-import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from '@/components/select'
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/select'
 import { cn } from '@/lib/utils'
 import { api, ResponseErrorType } from '@/services/api'
 import { categoryType } from '@/types/category'
@@ -30,7 +37,7 @@ export default function FormFieldsVehicle({
   error,
 }: FormFieldsVehicleProps) {
   const { pending } = useFormStatus()
-  const [category, setCategory] = useState<categoryType[]>() 
+  const [category, setCategory] = useState<categoryType[]>()
   const [updateImage, setUpdateImage] = useState<string | undefined>()
 
   const requestData = async () => {
@@ -46,22 +53,24 @@ export default function FormFieldsVehicle({
     }
   }
 
-  useEffect( () => {
+  useEffect(() => {
     requestData()
   }, [])
 
   return (
     <>
       <FormFieldsGroup>
-        {vehicle && <Input defaultValue={vehicle.id} type="text" name="id" hidden />}
+        {vehicle && (
+          <Input defaultValue={vehicle.id} type="text" name="id" hidden />
+        )}
         <FormField>
-          <Label htmlFor='name' required={!vehicle}>
+          <Label htmlFor="name" required={!vehicle}>
             Nome
           </Label>
           <Input
-            name='name'
-            id='name'
-            placeholder='Insira o nome do veículo'
+            name="name"
+            id="name"
+            placeholder="Insira o nome do veículo"
             defaultValue={vehicle?.name}
             disabled={pending}
             readOnly={readOnly}
@@ -70,13 +79,13 @@ export default function FormFieldsVehicle({
         </FormField>
 
         <FormField>
-          <Label htmlFor='brand' required={!vehicle}>
+          <Label htmlFor="brand" required={!vehicle}>
             Marca
           </Label>
           <Input
-            name='brand'
-            id='brand'
-            placeholder='Insira a marca do veículo'
+            name="brand"
+            id="brand"
+            placeholder="Insira a marca do veículo"
             defaultValue={vehicle?.brand}
             disabled={pending}
             readOnly={readOnly}
@@ -85,13 +94,13 @@ export default function FormFieldsVehicle({
         </FormField>
 
         <FormField>
-          <Label htmlFor='year' required={!vehicle}>
+          <Label htmlFor="year" required={!vehicle}>
             Ano
           </Label>
           <Input
-            name='year'
-            id='year'
-            placeholder='Insira o ano do veículo'
+            name="year"
+            id="year"
+            placeholder="Insira o ano do veículo"
             defaultValue={vehicle?.year}
             disabled={pending}
             readOnly={readOnly}
@@ -100,37 +109,37 @@ export default function FormFieldsVehicle({
         </FormField>
 
         <FormField>
-          <Label 
-            htmlFor='image' 
+          <Label
+            htmlFor="image"
             hidden={readOnly && !vehicle?.image}
             required={!vehicle}
           >
             Imagem
           </Label>
           <Input
-            name='image'
-            id='image'
-            type='file'
-            accept='image/*'
+            name="image"
+            id="image"
+            type="file"
+            accept="image/*"
             disabled={pending}
             hidden={readOnly}
             onChange={(e) => handleImageChange(e, setUpdateImage)}
             error={error?.errors?.image}
           />
           <ImageForm
-            className='aspect-square size-40'
+            className="aspect-square size-40"
             src={updateImage || vehicle?.image}
           />
         </FormField>
 
         <FormField>
-          <Label htmlFor='quantity' required={!vehicle}>
+          <Label htmlFor="quantity" required={!vehicle}>
             Quantidade
           </Label>
           <Input
-            name='quantity'
-            id='quantity'
-            placeholder='Insira a quantidade de veículos a adicionar'
+            name="quantity"
+            id="quantity"
+            placeholder="Insira a quantidade de veículos a adicionar"
             defaultValue={vehicle?.quantity}
             disabled={pending}
             readOnly={readOnly}
@@ -141,15 +150,15 @@ export default function FormFieldsVehicle({
         <FormField>
           <Select
             disabled={pending || readOnly}
-            name='category_id'
+            name="category_id"
             defaultValue={vehicle?.category_id}
           >
             <Label>Categoria</Label>
             <SelectTrigger>
-              <SelectValue placeholder='Selecione a categoria do veículo'/>
+              <SelectValue placeholder="Selecione a categoria do veículo" />
             </SelectTrigger>
-            <SelectContent id='category_id'>
-              <SelectGroup id='category_id'>
+            <SelectContent id="category_id">
+              <SelectGroup id="category_id">
                 {category?.map((category: categoryType, index: number) => (
                   <SelectItem value={category.id} key={index}>
                     {category.name}
@@ -161,11 +170,10 @@ export default function FormFieldsVehicle({
         </FormField>
 
         {error?.errors?.category_id && (
-          <p className='text-destructive text-xs mt-2'>
+          <p className="text-destructive text-xs mt-2">
             {error?.errors?.category_id}
           </p>
         )}
-
       </FormFieldsGroup>
       <DialogFooter className={cn({ hidden: readOnly })}>
         <Button type="submit" pending={pending}>

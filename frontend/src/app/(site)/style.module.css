@@ -1,49 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
 
-.page{
-    font-family: "Outfit", sans-serif;
-    color: #f8fafc;
+.page {
+    font-family: "Outfit", sans-serif; 
     display: flex;
     flex-direction: column;
-    min-height: 100;
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    width: 100%;
-    background: #222831;
-    position: relative;
-    padding-bottom: 340px;
-}
-
-.wrapper {
-    margin: 2rem;
-    display: grid;
-    gap: 1.2rem;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    justify-content: center;
-    transition: all 0.5s ease;
-}
-
-.title {
-    color: white;
-    padding-top: 16px;
-    font-weight: 800;
-    display: flex;
-    font-size: 36px;
-    width: 100%;
     align-items: center;
-    justify-content: center;
-}
-
-.search {
-    width: 100%;
-    background-color: transparent;
-    font-size: 1.8rem;
-    font-weight: 600;
-    outline: 2px solid transparent;
-    outline-offset: 2px;
-    padding: 10px;
+    background-color: #d3d3d3;
+    overflow-x: hidden;
+    margin-top: 50px;
 }
 
 .banner {
@@ -51,35 +15,90 @@
     width: 100%;
     height: 300px;
     overflow: hidden;
+    margin-bottom: 20px;
 }
 
 .banner_bg {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    filter: brightness(0.6);
+    filter: brightness(0.7);
 }
 
-.banner_logo{
+.banner_logo {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    max-width: 300px;
-    max-height: 300px;
+    width: 300px;
+}
+
+.title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.search {
+    width: 50%;
+    max-width: 600px;
+    padding: 10px 16px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    outline: none;
+    transition: border-color 0.3s ease;
 }
 
 .search:focus {
-  border-color: #DFD0B8;
+    border-color: #4CAF50;
 }
 
-@media screen and (max-width: 1024px) {
+.wrapper {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 20px;
+    width: 90%;
+    max-width: 1200px;
+    margin-bottom: 40px;
+}
+
+
+
+@media screen and (max-width: 1200px) {
+    .wrapper {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .banner {
+        height: 200px;
+    }
+
+    .banner_logo {
+        width: 190px;
+    }
+
     .wrapper {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 700px) {
+    .search {
+        width: 90%;
+    }
+    
+    .banner {
+        height: 170px;
+    }
+
+    .banner_logo {
+        width: 150px;
+    }
+
     .wrapper {
         grid-template-columns: repeat(1, minmax(0, 1fr));
     }
