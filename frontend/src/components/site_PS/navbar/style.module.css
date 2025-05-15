@@ -58,6 +58,7 @@
     font-size: 1rem;
     border: none;
     cursor: pointer;
+    transition: color 0.3s;
 }
 
 .nav_item a:hover {
